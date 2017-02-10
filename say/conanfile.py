@@ -22,4 +22,8 @@ class SayConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
+        if self.scope.open:
+            self.cpp_info.rootpath = "../say"
+            self.cpp_info.includedirs = [""]
+            self.cpp_info.libdirs = ["../build/say/lib"]
         self.cpp_info.libs = ["say"]

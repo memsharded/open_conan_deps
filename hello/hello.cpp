@@ -2,5 +2,5 @@
 #include "say.h"
 
 void hello(){
-  say("Hello World from hello package fsdfsdfsdf!");
+  say("Hello World from hello package!");
 }
