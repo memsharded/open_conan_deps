@@ -5,7 +5,10 @@ os.chdir("say")
 os.system("conan export memsharded/testing")
 os.chdir("..")
 
-shutil.rmtree("build")
+try:
+  shutil.rmtree("build")
+except:
+  print "BUILD folder not existing, or impossible to remove, please check"
 os.makedirs("build")
 os.chdir("build")
 
