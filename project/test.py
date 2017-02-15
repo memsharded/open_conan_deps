@@ -1,14 +1,17 @@
 import shutil
 import os
+import sys
 
 os.chdir("say")
-os.system("conan export memsharded/testing")
+os.system("conan test_package")
 os.chdir("..")
 
-try:
+print os.getcwd()
+if os.path.exists("build"):
+  print "REMOVING BUILD FOLDER"
   shutil.rmtree("build")
-except:
-  print "BUILD folder not existing, or impossible to remove, please check"
+
+
 os.makedirs("build")
 os.chdir("build")
 
@@ -18,16 +21,20 @@ os.makedirs("hello")
 os.chdir("say")
 os.system("conan install ../../say")
 os.system("cmake ../../say")
+# os.system("cmake --build . --config Release")
+os.makedirs("lib")
+
 os.system("cmake --build . --config Release")
 os.chdir("..")
-
+sys.exit(0)
 
 os.chdir("hello")
 os.system("conan install ../../hello --scope say:open=True")
-os.system("cmake ../../hello")
+os.system('cmake ../../hello -G "Visual Studio 14 Win64"')
 os.system("cmake --build . --config Release")
 os.system("bin\main.exe")
 
+sys.exit(0)
 
 new_content = """#include "say.h"
 #include <iostream>
