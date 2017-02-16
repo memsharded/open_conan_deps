@@ -1,0 +1,5 @@
+find_package(Say REQUIRED)
+
+find_library(LIBHELLO_LIBRARIES hello.lib)
+set(LIBHELLO_LIBRARIES ${LIBHELLO_LIBRARIES} ${LIBSAY_LIBRARIES})
+find_path(LIBHELLO_INCLUDE_DIRS hello.h )

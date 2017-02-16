@@ -2,5 +2,5 @@
 #include <iostream>
 
 void say(std::string msg){
-  std::cout<<msg<<"\n";
+    std::cout << msg << "\n";
 }

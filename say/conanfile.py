@@ -17,5 +17,3 @@ class SayConan(ConanFile):
         self.run('cmake %s %s %s' % (self.conanfile_directory, cmake.command_line, install))
         self.run("cmake --build . --target install %s" % cmake.build_config)
 
-    def package_info(self):
-        self.cpp_info.libs = ["say"]

@@ -1,0 +1,5 @@
+find_package(Hello REQUIRED)
+
+find_library(LIBCHAT_LIBRARIES chat.lib)
+set(LIBCHAT_LIBRARIES ${LIBCHAT_LIBRARIES} ${LIBHELLO_LIBRARIES})
+find_path(LIBCHAT_INCLUDE_DIRS chat.h )
